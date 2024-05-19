@@ -25,13 +25,6 @@ server.on('connection', socket => {
 
     socket.on('message', message => {
         const { userId, userColor } = clients.get(socket);
-        // let parsedData;
-        // if (message.type === 'Buffer' && Array.isArray(message.data)) {
-        //     const buffer = Buffer.from(message.data);
-        //     parsedData = buffer.toString('utf-8');
-        // } else {
-        //     console.error('Помилка: Неправильний формат повідомлення');
-        // }
        
         const data = JSON.stringify({ userId, userColor, message });
         server.clients.forEach(client => {

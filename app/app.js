@@ -13,16 +13,6 @@ function sendMessage(e) {
 
 document.querySelector('form').addEventListener('submit', sendMessage);
 
-// socket.addEventListener('message', ({ data }) => {
-//     const reader = new FileReader();
-//     reader.onload = function() {
-//         const li = document.createElement('li');
-//         li.textContent = reader.result;
-//         document.querySelector('ul').appendChild(li);
-//     };
-//     reader.readAsText(data);
-// });
-
 socket.addEventListener('message', ({ data }) => {
     const parsedData = JSON.parse(data);
     if (parsedData.type === 'color') {
